@@ -1,0 +1,11 @@
+判断值是否在set集合中的速度明显要比list快的多, 因为查找set用到了hash，时间在O(1)级别。
+假设listA有100w个元素，setA=set(listA)即setA为listA转换之后的集合。
+以下做个简单的对比:
+for i in xrange(0, 5000000):
+  if i in listA:
+     pass
+for i in xrange(0, 5000000):
+  if i in setA:
+     pass
+第一个循环用了16min，第二个循环用了52s。 由此可见，在set中判断是否存在某值的效率要高的多。
+况且,从list转为set，并不会花什么时间。
